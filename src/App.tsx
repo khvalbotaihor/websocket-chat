@@ -1,26 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [messages, setMessages] = useState([
+        {message: "Hello Victor", id: "23f2332", user: {id: "sdsdf", name: "Dimich"}},
+        {message: "Hello Dimych", id: "df456456", user: {id: "34gsdv", name: "Victor"}},
+    ]);
+
+    return (
+        <div className="App">
+            <div>
+                <div style={
+                    {border: "1px solid black", padding: "10px", height: "300px", width: "300px", overflowY: "scroll"}
+                }>
+                    {messages.map(m => {
+                        return <div>
+                            <b>{m.user.name}:</b> {m.message}
+                            <hr/>
+                        </div>
+                    })}
+                </div>
+                <textarea>
+
+        </textarea>
+                <button>Send</button>
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
