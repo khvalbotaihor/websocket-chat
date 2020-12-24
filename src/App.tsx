@@ -15,7 +15,7 @@ function App() {
                     {border: "1px solid black", padding: "10px", height: "300px", width: "300px", overflowY: "scroll"}
                 }>
                     {messages.map(m => {
-                        return <div>
+                        return <div key={m.id}>
                             <b>{m.user.name}:</b> {m.message}
                             <hr/>
                         </div>
